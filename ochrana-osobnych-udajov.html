@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ochrana osobných údajov | Panvea Prešov (ukážka)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #F7F5F1;
+  color: #23302B;
+  font-family: Figtree, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+a {
+  color: #3F6B5C;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #1E3D33;
+}
+
+/* Hlavička */
+.hlavicka-obal {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E6E2DA;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(35, 48, 43, 0.05);
+}
+
+.hlavicka-obsah {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo-odkaz {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #23302B;
+  min-width: 0;
+}
+
+.logo-ikona {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3F6B5C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-text-hlavny {
+  font-weight: 700;
+  font-size: 19px;
+  white-space: nowrap;
+}
+
+.logo-podtitul {
+  font-size: 13px;
+  color: #5B6560;
+  line-height: 1.2;
+}
+
+/* Hlavičkové tlačidlo späť */
+.tlacidlo-spat {
+  background-color: #DCE4DE;
+  color: #23302B;
+  border-radius: 9999px;
+  padding: 8px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.tlacidlo-spat:hover {
+  filter: brightness(0.8);
+}
+
+/* Obal textového obsahu */
+.gdpr-kontajner {
+  max-width: 900px;
+  margin: 24px auto 60px;
+  padding: 24px 18px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #E6E2DA;
+  box-shadow: 0 4px 20px rgba(35, 48, 43, 0.04);
+}
+
+.gdpr-nadpis-hlavny {
+  font-size: 26px;
+  line-height: 1.3;
+  color: #1E2822;
+  margin-top: 0;
+  margin-bottom: 20px;
+  word-break: break-word;
+}
+
+.gdpr-podnadpis {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1E2822;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ECE8E1;
+}
+
+.gdpr-karta-kontakt {
+  background: #F7F5F1;
+  border-left: 4px solid #3F6B5C;
+  padding: 16px 20px;
+  border-radius: 0 14px 14px 0;
+  margin: 18px 0;
+}
+
+.gdpr-zoznam {
+  padding-left: 20px;
+  margin: 14px 0;
+}
+
+.gdpr-zoznam li {
+  margin-bottom: 8px;
+}
+
+.tlacidlo-paticka-spat {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 9px 18px;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: filter 0.2s ease;
+}
+
+.tlacidlo-paticka-spat:hover {
+  filter: brightness(0.8);
+  color: #FFFFFF !important;
+}
+
+/* ==========================================
+   Responzívne prispôsobenie pre PC a tablety
+   ========================================== */
+@media screen and (min-width: 768px) {
+  .hlavicka-obsah {
+    padding: 18px 24px;
+    gap: 20px;
+  }
+
+  .tlacidlo-spat {
+    padding: 10px 22px;
+    font-size: 15px;
+    gap: 8px;
+  }
+
+  .gdpr-kontajner {
+    margin: 48px auto;
+    padding: 44px;
+    border-radius: 24px;
+  }
+
+  .gdpr-nadpis-hlavny {
+    font-size: 34px;
+    line-height: 1.25;
+    margin-bottom: 24px;
+  }
+
+  .gdpr-podnadpis {
+    font-size: 22px;
+    margin-top: 36px;
+    margin-bottom: 14px;
+  }
+}
+
+/* Responzívne ošetrenie pre úzke displeje mobilov */
+@media screen and (max-width: 480px) {
+  .logo-podtitul {
+    display: none;
+  }
+  .tlacidlo-spat span {
+    display: none;
+  }
+  .tlacidlo-spat::after {
+    content: "Späť";
+  }
+}
+
+/* ===== DEMO: pruh ukážkového webu a toast ===== */
+.demo-pruh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #23302B;
+  color: #FFFFFF;
+  font-family: Figtree, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  padding: 9px 16px;
+  text-align: center;
+  z-index: 1002;
+}
+/* hlavička sa prilepí hneď pod demo pruh */
+header, .hlavicka-obal { top: var(--demo-h, 0px) !important; }
+body { padding-top: 40px; }
+.demo-pruh strong { color: #CFE3D8; }
+.demo-pruh a { color: #FFFFFF; text-decoration: underline; white-space: nowrap; }
+.demo-pruh a:hover { color: #CFE3D8; }
+.demo-pruh .demo-oddelovac { opacity: 0.5; margin: 0 6px; }
+.demo-mob-br { display: none; }
+@media (max-width: 640px) {
+  .demo-pruh { font-size: 13px; padding: 8px 12px; }
+  .demo-pruh .demo-kontakt { display: block; margin-top: 2px; }
+  .demo-pruh .demo-oddelovac-prvy, .demo-pruh .demo-skryt-mob { display: none; }
+  .demo-mob-br { display: inline; }
+}
+.demo-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 20px);
+  background: #23302B;
+  color: #FFFFFF;
+  font-family: Figtree, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  padding: 14px 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  max-width: min(92vw, 460px);
+  width: max-content;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 3000;
+}
+.demo-toast.zobrazeny { opacity: 1; transform: translate(-50%, 0); }
+</style>
+</head>
+<body>
+
+<!-- DEMO pruh: ukážkový web -->
+<div class="demo-pruh" role="note">
+  <strong>Ukážkový web</strong> - ambulancia, mená aj kontakty sú vymyslené.<span class="demo-oddelovac demo-oddelovac-prvy">·</span>
+  <span class="demo-kontakt">Chcete taký web pre svoju ambulanciu? Martin Ďurás<span class="demo-oddelovac demo-skryt-mob">·</span><br class="demo-mob-br"><a href="tel:+421904918538">0904 918 538</a><span class="demo-oddelovac">·</span><a href="mailto:duras.martin11@gmail.com">duras.martin11@gmail.com</a></span>
+</div>
+
+<!-- HLAVIČKA -->
+<header class="hlavicka-obal">
+  <div class="hlavicka-obsah">
+    <a href="index.html" class="logo-odkaz">
+      <span class="logo-ikona">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M12 21c-4-3-7-6.5-7-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7 3.5C19 14.5 16 18 12 21z"></path>
+        </svg>
+      </span>
+      <span style="display: flex; flex-direction: column;">
+        <span class="logo-text-hlavny">Panvea</span>
+        <span class="logo-podtitul">Gynekologická a urogynekologická ambulancia</span>
+      </span>
+    </a>
+
+    <a href="index.html" class="tlacidlo-spat">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Späť na hlavnú stránku</span>
+    </a>
+  </div>
+</header>
+
+<!-- OBSAH DOKUMENTU -->
+<main class="gdpr-kontajner">
+  <h1 class="gdpr-nadpis-hlavny">Informácie o spracúvaní a ochrane osobných údajov</h1>
+
+  <h2 class="gdpr-podnadpis" style="margin-top: 0">Základné informácie</h2>
+  <p>Prevádzkovateľ pristupuje k Vašim osobným údajom zodpovedne a preto v zmysle Nariadenia Európskeho Parlamentu a Rady (EÚ) 2016/679 z 27. apríla 2016 o ochrane fyzických osôb pri spracúvaní osobných údajov a o voľnom pohybe takýchto údajov, ktorým sa zrušuje smernica 95/46/ES (všeobecné nariadenie o ochrane údajov) (ďalej len „nariadenie GDPR“) a zákona č. 18/2018 Z. z. o ochrane osobných údajov a o zmene a doplnení niektorých zákonov (ďalej len „Zákon“), Vám ako dotknutej osobe (fyzickej osobe, ktorej osobné údaje sa spracúvajú) na svojom webovom sídle sprístupňuje všetky potrebné informácie o spracúvaní Vašich osobných údajov.</p>
+
+  <p>Prevádzkovateľ v zmysle čl. 24 nariadenia GDPR a ust. § 31 Zákona pristúpil k prijatiu primeraných technických, organizačných, personálnych a bezpečnostných opatrení a záruk, ktoré zohľadňujú najmä:</p>
+  <ul class="gdpr-zoznam">
+    <li>zásady spracúvania osobných údajov, ktorými sú zákonnosť, spravodlivosť a transparentnosť, obmedzenie a kompatibilita účelov spracúvania osobných údajov, ďalej minimalizácia osobných údajov, ich pseudonymizácia a šifrovanie, ako aj integrita, dôvernosť a dostupnosť;</li>
+    <li>zásady nevyhnutnosti a primeranosti (vzťahuje sa aj na rozsah a množstvo spracúvaných osobných údajov, dobu uchovávania a prístup k osobným údajom dotknutej osoby) spracúvania osobných údajov s ohľadom na účel spracovateľskej operácie;</li>
+    <li>povahu, rozsah, kontext a účel spracovateľskej operácie;</li>
+    <li>odolnosť a obnovu systémov spracúvania osobných údajov;</li>
+    <li>poučenia oprávnených osôb prevádzkovateľa;</li>
+    <li>prijatie opatrení na bezodkladné zistenie, či došlo k porušeniu ochrany osobných údajov a promptné informovanie dozorného orgánu a zodpovednej osoby;</li>
+    <li>prijatie opatrení na zabezpečenie opravy alebo vymazanie nesprávnych údajov, či realizáciu iných práv dotknutej osoby;</li>
+    <li>riziká s rôznou pravdepodobnosťou a závažnosťou pre práva a slobody fyzických osôb (najmä náhodné alebo nezákonné zničenie osobných údajov, strata alebo zmena osobných údajov, zneužitie osobných údajov – neoprávnený prístup alebo neoprávnené poskytnutie, posúdenie rizík so zreteľom na pôvod, povahu, pravdepodobnosť a závažnosť rizika v súvislosti so spracúvaním a na identifikáciu najlepších postupov na zmiernenie rizika).</li>
+  </ul>
+
+  <h2 class="gdpr-podnadpis">1. Prevádzkovateľ</h2>
+  <div class="gdpr-karta-kontakt">
+    <strong>Panvea s.r.o. (ukážka)</strong><br>
+    Vzorová 12<br>
+    080 01 Prešov<br>
+    IČO: 12 345 678
+  </div>
+  <p>Vaše údaje spracúvame pre vlastné účely ako Prevádzkovateľ. To znamená, že my stanovujeme účel, pre ktorý Vaše osobné údaje zhromažďujeme, určujeme prostriedky spracúvania a zodpovedáme za ich riadne vykonanie.</p>
+
+  <h2 class="gdpr-podnadpis">2. Sprostredkovatelia a príjemcovia</h2>
+  <p>Prevádzkovateľ môže v určitých prípadoch spracúvať osobné údaje dotknutých osôb aj prostredníctvom sprostredkovateľov, ktorí sú poverení spracúvaním osobných údajov v súlade s článkom 28 Nariadenia GDPR.</p>
+  <p>Sprostredkovatelia spracúvajú osobné údaje dotknutých osôb v mene Prevádzkovateľa. Spracúvanie osobných údajov prostredníctvom sprostredkovateľa nemá negatívny vplyv na výkon a uplatňovanie práv dotknutej osoby. Prevádzkovateľ využíva len sprostredkovateľov poskytujúcich primerané technické, organizačné a ďalšie opatrenia tak, aby spracúvanie spĺňalo požiadavky GDPR a aby bola v plnom rozsahu zabezpečená ochrana práv dotknutej osoby.</p>
+  <p>Prevádzkovateľ pri spracúvaní osobných údajov dotknutých osôb využíva nasledujúce kategórie sprostredkovateľov:</p>
+  <ul class="gdpr-zoznam">
+    <li>dodávateľ zabezpečujúci dodávky technického riešenia, služby webhostingu, údržby a podpory IT systémov používaných Prevádzkovateľom,</li>
+    <li>dodávateľ zabezpečujúci služby na úseku účtovníctva a daňových povinností Prevádzkovateľa.</li>
+  </ul>
+  <p><strong>Kategórie príjemcov osobných údajov:</strong> osoby konajúce na základe poverenia prevádzkovateľa, právny zástupca, audítor, orgány štátnej správy a verejnej moci na výkon kontroly a dozoru.</p>
+
+  <h2 class="gdpr-podnadpis">3. Účel a právny základ spracúvania osobných údajov</h2>
+  <p>Ako prevádzkovateľ výlučne spracúvame osobné údaje, ktoré vieme podložiť legitímnym právnym základom a definovaným účelom:</p>
+  
+  <p><strong>Evidencia pacientov, zabezpečenie a uchovávanie zdravotnej dokumentácie, poskytovanie zdravotnej starostlivosti:</strong><br>
+  Právnym základom spracúvania osobných údajov v tomto prípade je čl. 6 ods. 1 písm. c) nariadenia GDPR – konkrétne zákon č. 576/2004 Z. z. o zdravotnej starostlivosti, službách súvisiacich s poskytovaním zdravotnej starostlivosti a o zmene a doplnení niektorých zákonov, zákon č. 578/2004 Z. z. o poskytovateľoch zdravotnej starostlivosti, zdravotníckych pracovníkoch, stavovských organizáciách v zdravotníctve a o zmene a doplnení niektorých zákonov, zákon č. 362/2011 Z. z. o liekoch a zdravotníckych pomôckach a o zmene a doplnení niektorých zákonov, zákon č. 580/2004 Z. z. o zdravotnom poistení, zákon č. 581/2004 Z. z. o zdravotných poisťovniach, dohľade nad zdravotnou starostlivosťou, zákon č. 579/2004 Z. z. o záchrannej zdravotnej službe a zákon č. 577/2004 Z. z. o rozsahu zdravotnej starostlivosti uhrádzanej na základe verejného zdravotného poistenia v znení neskorších predpisov.</p>
+
+  <p><strong>Okruhy dotknutých osôb:</strong> fyzické osoby – pacienti, zákonní zástupcovia neplnoletých fyzických osôb.<br>
+  <strong>Kategórie príjemcov:</strong> orgány verejnej moci podľa príslušných právnych predpisov, zdravotné poisťovne, iní poskytovatelia zdravotnej starostlivosti, tretie subjekty, ktorým osobitný predpis zveruje právomoc rozhodovať o právach a povinnostiach fyzických osôb.<br>
+  <strong>Lehoty na vymazanie osobných údajov:</strong> 20 rokov po smrti fyzickej osoby alebo 20 rokov od posledného poskytnutia zdravotnej starostlivosti osobe.</p>
+
+  <p><strong>Iné situácie spracúvania osobných údajov:</strong></p>
+  <ul class="gdpr-zoznam">
+    <li><strong>Predzmluvné vzťahy:</strong> pri prejavení záujmu o naše služby, je právnym základom čl. 6 ods. 1 písm. b) Nariadenia GDPR.</li>
+    <li><strong>Plnenie zmluvy:</strong> po vzniku zmluvného vzťahu pri vzájomnej komunikácii spracúvanie prebieha podľa čl. 6 ods. 1 písm. b) Nariadenia GDPR.</li>
+    <li><strong>Kontaktné dopyty a otázky:</strong> pri reakcii na dopyt, podnet alebo otázku podanú elektronicky (cez webový formulár alebo e-mail), telefonicky alebo písomne, uplatňujeme právny základ čl. 6 ods. 1 písm. f) Nariadenia GDPR – oprávnený záujem prevádzkovateľa. Ako dotknutá osoba máte právo kedykoľvek namietať takéto spracúvanie.</li>
+    <li><strong>Uchádzači o zamestnanie:</strong> pri zaslaní životopisu spracúvame údaje na základe súhlasu podľa čl. 6 ods. 1 písm. a) Nariadenia GDPR. Súhlas môžete kedykoľvek odvolať.</li>
+  </ul>
+
+  <h2 class="gdpr-podnadpis">4. Doba spracúvania a uchovávania osobných údajov</h2>
+  <p>Osobné údaje spracúvané v rámci plnenia zákonných povinností na úseku daní a účtovníctva (napr. zákon č. 431/2002 Z. z. o účtovníctve, zákon č. 595/2003 Z. z. o dani z príjmov) uchovávame po dobu stanovenú príslušnými právnymi predpismi. Riadime sa zásadou minimalizácie uchovávania osobných údajov v zmysle čl. 5 ods. 1 písm. e) Nariadenia GDPR.</p>
+  <p>Osobné údaje spracúvané na základe súhlasu (napr. evidencia uchádzačov o zamestnanie) spracúvame po dobu 3 rokov alebo do odvolania súhlasu. Údaje spracúvané na základe oprávneného záujmu získané pri reakcii na dopyt sú po jeho vybavení bezodkladne vymazané, pokiaľ nevznikol zmluvný vzťah.</p>
+
+  <p>K výmazu osobných údajov pristupujeme bezodkladne po tom, ako:</p>
+  <ul class="gdpr-zoznam">
+    <li>boli ukončené všetky zmluvné vzťahy a zanikli všetky záväzky,</li>
+    <li>boli vybavené všetky reklamácie a žiadosti,</li>
+    <li>boli naplnené všetky účely spracúvania alebo uplynula lehota udeleného súhlasu,</li>
+    <li>bolo vyhovené žiadosti dotknutej osoby o výmaz osobných údajov,</li>
+    <li>zanikli všetky zákonné archivačné povinnosti.</li>
+  </ul>
+
+  <h2 class="gdpr-podnadpis">5. Zverejnenie údajov</h2>
+  <p>Naša spoločnosť získané osobné údaje v žiadnom prípade nezverejňuje.</p>
+
+  <h2 class="gdpr-podnadpis">6. Cezhraničný prenos, profilovanie a automatizované rozhodovanie</h2>
+  <p>Cezhraničný prenos do tretích krajín sa nerealizuje. Spracúvanie osobných údajov automatizovanými prostriedkami a profilovanie sa nerealizuje a ani do budúcna nezamýšľa.</p>
+</main>
+
+<!-- PÄTIČKA -->
+<footer style="background: #23302B; color: #FFFFFF; padding: 40px 16px 28px; font-size: 14.5px">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); align-items: center; gap: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 24px">
+      
+      <div style="display: flex; justify-content: flex-start">
+        <a href="#" data-demo="tel" style="color: #FFFFFF; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 10px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>0900 000 000</span>
+        </a>
+      </div>
+
+      <div style="display: flex; justify-content: flex-start">
+        <a href="#" data-demo="mail" style="color: #FFFFFF; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 10px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>info@panvea-ukazka.sk</span>
+        </a>
+      </div>
+
+      <div style="display: flex; justify-content: flex-start">
+        <a href="#" data-demo="fb" style="color: #FFFFFF; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 10px" aria-label="Navštíviť náš Facebook profil">
+          <img src="images/facebook-m.png" alt="Facebook logo" style="width: 28px; height: 28px; object-fit: contain; display: block">
+          <span>Panvea na Facebooku</span>
+        </a>
+      </div>
+
+      <div style="display: flex; justify-content: flex-start">
+        <a href="index.html" class="tlacidlo-paticka-spat">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Späť na hlavnú stránku</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; color: #9EABA3; font-size: 13px">
+      <span>© 2026 Panvea s.r.o., Prešov (ukážka)</span>
+      <div style="display: flex; gap: 16px; color: #B5BFB9">
+        <span>IČO: 12 345 678</span>
+        <span>·</span>
+        <span>DIČ: 1234567890</span>
+      </div>
+      <span>Nepoužívame reklamné ani analytické cookies.</span>
+    </div>
+
+  </div>
+</footer>
+
+
+<div class="demo-toast" id="demoToast" role="status" aria-live="polite"></div>
+<script>
+  // DEMO: výška pruhu pre prilepenú hlavičku a skoky na sekcie
+  (function () {
+    var pruh = document.querySelector(".demo-pruh");
+    var hlavicka = document.querySelector("header");
+    function nastav() {
+      var h = pruh ? pruh.offsetHeight : 0;
+      document.documentElement.style.setProperty("--demo-h", h + "px");
+      document.body.style.paddingTop = h + "px";
+      document.documentElement.style.scrollPaddingTop = (h + (hlavicka ? hlavicka.offsetHeight : 0) + 8) + "px";
+    }
+    nastav();
+    window.addEventListener("resize", nastav);
+    window.addEventListener("load", nastav);
+  })();
+
+  // DEMO: odkazy na volanie, e-mail a Facebook ambulancie sú v ukážke len naoko
+  (function () {
+    var toast = document.getElementById("demoToast");
+    var casovac;
+    window.demoToast = function (text) {
+      if (!toast) return;
+      toast.textContent = text;
+      toast.classList.add("zobrazeny");
+      clearTimeout(casovac);
+      casovac = setTimeout(function () { toast.classList.remove("zobrazeny"); }, 3600);
+    };
+    var hlasky = {
+      tel: "Ukážka: na ostrom webe sa tu pacientke rovno vytočí číslo ambulancie.",
+      mail: "Ukážka: na ostrom webe sa tu otvorí e-mail pre ambulanciu.",
+      fb: "Ukážka: tu bude odkaz na Facebook ambulancie."
+    };
+    document.querySelectorAll("[data-demo]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.demoToast(hlasky[el.getAttribute("data-demo")] || "Toto je ukážkový web.");
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
