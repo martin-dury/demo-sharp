@@ -8,7 +8,7 @@
 const SUPABASE_URL = "https://zlhxefiadxvvawbvekfh.supabase.co/";
 const SUPABASE_KEY = "sb_publishable_-pYgjQcAxl2KfVbO0b0RuQ__ronYKd8";
 const SUPABASE_TABULKA = "farebne_presety";
-const WEB_ID = "demo-v1"; // aby sa presety a oznamy rôznych webov nemiešali
+const WEB_ID = "demo-colours"; // aby sa presety a oznamy rôznych webov nemiešali
 const SUPABASE_OZNAMY = "oznamy"; // tabuľka s oznamom (pozri Extra/supabase-oznamy-bez-pinu.sql)
 
 (function () {
