@@ -5,7 +5,7 @@
 
 /* ---- Supabase: doplň Project URL a kľúč (publishable alebo anon) ----
    Kým je to prázdne, presety sa ukladajú len v tomto prehliadači. */
-const SUPABASE_URL = "https://zlhxefiadxvvawbvekfh.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://zlhxefiadxvvawbvekfh.supabase.co/";
 const SUPABASE_KEY = "sb_publishable_-pYgjQcAxl2KfVbO0b0RuQ__ronYKd8";
 const SUPABASE_TABULKA = "farebne_presety";
 const WEB_ID = "demo-v1"; // aby sa presety a oznamy rôznych webov nemiešali
